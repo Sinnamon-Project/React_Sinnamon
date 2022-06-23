@@ -1,27 +1,48 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Posts from './Posts'
 import PostForm from './PostForm'
 
 
-const AllPosts = () => {
-
-    const posts = [{"post_id":4,"title":"Paris is a beautiful place","text_post":"Nancy had a great time visiting Paris"},
-    {"post_id":5,"title":"Egypt has many historical sites","text_post":"Sandra loved visiting Giza"},
-    {"post_id":6,"title":"Dublin","text_post":"Mamta enjoyed visiting the Phoenix Park"},
-    {"post_id":7,"title":"Kildare","text_post":"Neeraja had a great time in Kildare"},
-
-    ]
+const AllPosts = () => {const [Posts, setPosts] = useState([]);
     
-    let postList = posts.map(post => 
+    function getAllPosts(){
+        axios.get("http://localhost:8080/posts")
+        .then(response => {
+            console.log(response);
+            setPosts(response.data);
+        }
+
+        ).catch( error =>{
+            console.log(error);
+        })
+    
+    }
+    //when loaded
+    useEffect(()=>{
+        getAllPosts()
+    },[]) //pass empty array to stop it repeating over and over
+
+
+    let postList = Posts.map(post => 
             <div key={post.post_id}>
                 <Posts post = {post}/>
             </div>)
 
-    const addPost = (post)=>{
-        posts.push(posts);
-        console.log(posts);
+
+const addPost =(post)=>{ //make sure you are displaying right.gte all depts, make sure in sync
+        axios.post("http://localhost:8000/posts", post)
+        .then(response => {
+            getAllPosts();//rather than  modify what alreayd have, fetch again
+        }
+
+        ).catch( error =>{
+            console.log(error);
+        })
+    
     }
+
 
 
     return (
@@ -30,7 +51,7 @@ const AllPosts = () => {
         <Container>
             <Row>
             <Col>{postList}</Col>
-            {<Col><PostForm submitHandler = {addPost} /></Col>} 
+            <Col><PostForm submitHandler = {addPost} /></Col>
             </Row>
         </Container>
        

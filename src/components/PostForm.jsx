@@ -9,7 +9,6 @@ const PostForm = (props) => {
     const addPost = (e) =>{
         e.preventDefault();
         let post = {
-            "id" : 6,
             "PostTitle" : PostTitle,
             "Text" : Text
         }
@@ -34,7 +33,7 @@ const PostForm = (props) => {
     </Form.Group>
     
     <Button variant="primary" type="submit">
-      Post
+      Submit
     </Button>
   </Form>
   )
