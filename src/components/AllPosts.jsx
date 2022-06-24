@@ -46,17 +46,19 @@ const AllPosts = () => {
 
     }
 
-
-
     return (
-        <>
-            <h1>AllPosts: </h1>
+         <>
+         <div className='p-5 text-center bg-light'>
+
+            <h1>SINNAMON </h1>
+            <h2>Spice up your Life</h2>
             <Container>
                 <Row>
                     <Col>{postList}</Col>
                     <Col><PostForm submitHandler={addPost} /></Col>
                 </Row>
             </Container>
+            </div>
 
         </>
     )

@@ -30,14 +30,14 @@ const Posts = (props) => {
 {Array.from({ length: 1 }).map((_, idx) => (
   <Col>
     <Card>
-    if (props.post.picture) {
-       <Card.Img variant="top" src={require(`../assets/${props.post.picture}.jpg`)} />
-     }
+   
+       {props.post.picture && <Card.Img variant="top" src={require(`../assets/${props.post.picture}.jpg`)} />}
+     
       <Card.Body>
         <Card.Title>{props.post.title}</Card.Title>
-        <Card.Text>
+        {/* <Card.Text>
         {props.post.text_post}
-        </Card.Text>
+        </Card.Text> */}
         <Button variant="primary">View Post</Button>
       </Card.Body>
     </Card>
