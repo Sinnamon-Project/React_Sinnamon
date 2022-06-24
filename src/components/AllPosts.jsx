@@ -5,56 +5,59 @@ import Posts from './Posts'
 import PostForm from './PostForm'
 
 
-const AllPosts = () => {const [Posts, setPosts] = useState([]);
-    
-    function getAllPosts(){
-        axios.get("http://localhost:8080/posts")
-        .then(response => {
-            console.log(response);
-            setPosts(response.data);
-        }
+const AllPosts = () => {
+    const [posts, setPosts] = useState([]);
 
-        ).catch( error =>{
-            console.log(error);
-        })
-    
+    function getAllPosts() {
+        axios.get("http://localhost:8080/posts")
+            .then(response => {
+                console.log(response);
+                setPosts(response.data);
+            }
+
+            ).catch(error => {
+                console.log(error);
+            })
+
     }
     //when loaded
-    useEffect(()=>{
+    useEffect(() => {
         getAllPosts()
-    },[]) //pass empty array to stop it repeating over and over
+    }, []) //pass empty array to stop it repeating over and over
 
 
-    let postList = Posts.map(post => 
-            <div key={post.post_id}>
-                <Posts post = {post}/>
-            </div>)
+    let postList = posts.map(post =>
+        <div key={post.post_id}>
+            <Posts post={post} />
+        </div>)
 
 
-const addPost =(post)=>{ //make sure you are displaying right.gte all depts, make sure in sync
-        axios.post("http://localhost:8000/posts", post)
-        .then(response => {
-            getAllPosts();//rather than  modify what alreayd have, fetch again
-        }
+    const addPost = (post) => { //make sure you are displaying right.gte all depts, make sure in sync
+        axios.post('http://localhost:8080/posts', post)
+            .then(response => {
+                getAllPosts();//rather than  modify what alreayd have, fetch again
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            .then(()=>{
+                console.log("Always Executed")
+            })
 
-        ).catch( error =>{
-            console.log(error);
-        })
-    
     }
 
 
 
     return (
         <>
-        <h1>AllPosts: </h1>
-        <Container>
-            <Row>
-            <Col>{postList}</Col>
-            <Col><PostForm submitHandler = {addPost} /></Col>
-            </Row>
-        </Container>
-       
+            <h1>AllPosts: </h1>
+            <Container>
+                <Row>
+                    <Col>{postList}</Col>
+                    <Col><PostForm submitHandler={addPost} /></Col>
+                </Row>
+            </Container>
+
         </>
     )
 }

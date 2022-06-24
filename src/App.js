@@ -42,7 +42,7 @@ function App() {
       </Navbar>
 
       <Routes>
-        <Route path='/' element={<AllPosts />} />
+        <Route path='/' exact element={<AllPosts />} />
         {/* <Route path='/welcome' element={<Welcome />} /> */}
         {/* <Route path='/counter' element={<Counter />} /> */}
         <Route path='/posts/:id' element={<PostDetail />} />
