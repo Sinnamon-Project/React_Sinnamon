@@ -17,7 +17,7 @@ const PostForm = (props) => {
       "picture": pic
     }
     console.log(post);
-    props.submitHandler(post);
+    props.submitForm(post);
   }
 
   return (
@@ -40,11 +40,11 @@ const PostForm = (props) => {
           onChange={event => setAuthorId(event.target.value)} />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formPic">
-        <Form.Label>Pic</Form.Label>
-        <Form.Control type="text" placeholder="Enter picture" value={pic}
+      {/* <Form.Group className="mb-3" controlId="formPic">
+        <Form.Label>Pic</Form.Label> */}
+        {/* <Form.Control type="text" placeholder="Enter picture" value={pic}
           onChange={event => setPic(event.target.value)} />
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group controlId="select">
       <Form.Label>Dropdown Pic Select</Form.Label>

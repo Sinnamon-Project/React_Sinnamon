@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 // import one from '../assets/xyz.jpg';
 //${props.post.post_id}
@@ -22,7 +22,7 @@ const Posts = (props) => {
     //       <Card.Text>
     //       {props.post.text_post}
     //       </Card.Text>
-    //       <Button variant="primary" as={NavLink} to={'/post/'+props.post.text_post}>View Post</Button>
+    //       <Button variant="primary" as={NavLink} to={'/posts/'+props.post.text_post}>View Post</Button>
     //    </Card.Body>
     // </Card>
 
@@ -38,7 +38,7 @@ const Posts = (props) => {
         {/* <Card.Text>
         {props.post.text_post}
         </Card.Text> */}
-        <Button variant="primary">View Post</Button>
+        <Button variant="primary" as ={NavLink} to = {'/posts/'+props.post.post_id}>View Post</Button>
       </Card.Body>
     </Card>
   </Col>
