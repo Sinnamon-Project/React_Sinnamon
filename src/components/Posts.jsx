@@ -35,9 +35,10 @@ const Posts = (props) => {
      
       <Card.Body>
         <Card.Title>{props.post.title}</Card.Title>
-        {/* <Card.Text>
-        {props.post.text_post}
-        </Card.Text> */}
+        <Card.Text>
+          <p> Created At</p>
+        {props.post.date_time}
+        </Card.Text>
         <Button variant="primary" as ={NavLink} to = {'/posts/'+props.post.post_id}>View Post</Button>
       </Card.Body>
     </Card>
