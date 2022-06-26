@@ -29,7 +29,7 @@ const PostDetail = () => {
 
 
     return (
-        <div className="post-details">
+        <div className="post-details m-3 p-3">
             <h1>{post.title}</h1>
             <p>{post.text_post}</p>
             {post.picture && <Card.Img variant="top" src={require(`../assets/${post.picture}.jpg`)} />}

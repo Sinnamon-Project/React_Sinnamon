@@ -38,15 +38,6 @@ function App() {
               <Nav.Link as={Link} to="/counter">Counter</Nav.Link> */}
 
             </Nav>
-            {/* <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -54,12 +45,9 @@ function App() {
       <Routes>
         <Route path='/Home' element={<AllPosts />} />
         <Route path='/' exact element={<AllPosts />} />
-        {/* <Route path='/welcome' element={<Welcome />} /> */}
         <Route path='posts/:id' element={<PostDetail />} />
         <Route path='/AboutUs' element={<AboutUs />} />
-        {/* <Route path='/Home' element={<Home />} /> */}
         <Route path="/write" element={<PostForm submitForm={addPost} />} />
-
       </Routes>
     </BrowserRouter>
   );
