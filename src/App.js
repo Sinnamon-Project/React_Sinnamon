@@ -52,9 +52,10 @@ function App() {
       </Navbar>
 
       <Routes>
+        <Route path='/Home' element={<AllPosts />} />
         <Route path='/' exact element={<AllPosts />} />
         {/* <Route path='/welcome' element={<Welcome />} /> */}
-        <Route path='/:post_id' element={<PostDetail />} />
+        <Route path='posts/:id' element={<PostDetail />} />
         <Route path='/AboutUs' element={<AboutUs />} />
         {/* <Route path='/Home' element={<Home />} /> */}
         <Route path="/write" element={<PostForm submitForm={addPost} />} />

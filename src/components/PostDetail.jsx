@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Card } from 'react-bootstrap';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -10,12 +11,14 @@ const PostDetail = () => {
 
     useEffect(() => {
         getPostById(id)
-    }, [])
+    }, [id])
 
     function getPostById(id) {
-        axios.get(`http://localhost:8080/post/${id}`)
+        axios.get(`http://localhost:8080/posts/${id}`)
             .then(response => {
-                setPost(response.data)
+                if (!!response && !!response.data && response.data.length !== undefined && response.data.length > 0) {
+                    setPost(response.data[0]);
+                }
                 console.log(response.data)
 
             })
@@ -29,6 +32,7 @@ const PostDetail = () => {
         <div className="post-details">
             <h1>{post.title}</h1>
             <p>{post.text_post}</p>
+            {post.picture && <Card.Img variant="top" src={require(`../assets/${post.picture}.jpg`)} />}
         </div>
     )
 }

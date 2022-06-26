@@ -28,16 +28,17 @@ const Posts = (props) => {
 
     <Row xs={1} md={2} className="g-4">
 {Array.from({ length: 1 }).map((_, idx) => (
-  <Col>
-    <Card>
-   
+  <Col key={props.post.post_id}>
+    <Card>   
        {props.post.picture && <Card.Img variant="top" src={require(`../assets/${props.post.picture}.jpg`)} />}
      
       <Card.Body>
         <Card.Title>{props.post.title}</Card.Title>
         <Card.Text>
-          <p> Created At</p>
-        {props.post.date_time}
+          Created At
+        </Card.Text>
+        <Card.Text>
+          {props.post.date_time}
         </Card.Text>
         <Button variant="primary" as ={NavLink} to = {'/posts/'+props.post.post_id}>View Post</Button>
       </Card.Body>
