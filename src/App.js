@@ -13,7 +13,8 @@ function App() {
 
   const addPost = (post) => { //make sure you are displaying right.gte all depts, make sure in sync
     axios.post('http://localhost:8080/posts', post)
-      .then(response => {
+      .then(response => {        
+        window.location = "/Home";
         console.log(addPost)//rather than  modify what alreayd have, fetch again
       })
       .catch(error => {

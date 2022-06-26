@@ -7,7 +7,6 @@ const PostForm = (props) => {
   const [authorId, setAuthorId] = useState('');
   const [pic, setPic] = useState('');
 
-
   const addPost = (e) => {
     e.preventDefault();
     let post = {

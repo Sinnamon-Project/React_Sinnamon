@@ -13,7 +13,7 @@ const Posts = (props) => {
         <Card.Body>
           <Card.Title>{props.post.title}</Card.Title>
           <Card.Text>
-            Created At {props.post.date_time}
+            Created on {props.post.date_time}
           </Card.Text>
           <Button variant="primary" as={NavLink} to={'/posts/' + props.post.post_id}>View Post</Button>
         </Card.Body>
