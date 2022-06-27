@@ -27,7 +27,7 @@ function App() {
 
       <Navbar bg="light" expand="lg">
         <Container>
-          <Nav.Link as={NavLink} to="/Home">Home</Nav.Link>
+          <Nav.Link as={NavLink} to="/Home"><img src={require(`./assets/logo.jpg`)} alt="SiNnaMoN"></img>SiNnaMoN</Nav.Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">

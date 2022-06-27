@@ -23,7 +23,7 @@ const AllPosts = () => {
 
   return (
     <Container className="All-Posts">
-      <Row xs={2} md={2} className='g-4'>
+      <Row xs={3} md={3} className='g-4'>
         {Array.from({ length: 1 }).map((_, idx) => (
           posts.map(post =>
             <Posts key={"post" + post.post_id} post={post} />
